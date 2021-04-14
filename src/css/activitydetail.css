@@ -1,0 +1,25 @@
+.activity_detail{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.date{
+    color: red;
+}
+
+.card{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 326px;
+    height: 35px;
+    padding: 25px;
+    border-radius: 15px;
+
+
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
