@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 import Header from './Header.jsx';
 import ActivityDetail from './ActivityDetail.jsx';
+import ActivityFeed from './ActivityFeed.jsx';
 
 const App = () => {
   return (
@@ -30,6 +31,8 @@ const App = () => {
         is_archived = "false"
         call_type ="missed"
       />
+
+      <ActivityFeed />
     </div>
   );
 };

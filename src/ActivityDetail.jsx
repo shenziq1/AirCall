@@ -46,4 +46,4 @@ class ActivityDetail extends React.Component {
   }
 }
 
-export default ActivityDetail
+export default ActivityDetail;
