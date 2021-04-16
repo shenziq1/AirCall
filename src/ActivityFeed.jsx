@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ActivityDetail from "./ActivityDetail.jsx"
+import './css/activityfeed.css'
 
 export default function ActivityFeed() {
   const [data, setData] = useState([]);
@@ -15,7 +16,7 @@ export default function ActivityFeed() {
   }, [data.filter(i => !i.is_archived).map(i => i.id)]);
 
   return (
-    <div>
+    <div className='activity_feed'>
      {data.filter(i => !i.is_archived).map(i =>
        <ActivityDetail
          key = {i.id}

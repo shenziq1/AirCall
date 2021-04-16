@@ -6,7 +6,6 @@ import CallNumber from "./CallNumber.jsx"
 
 export default function ActivityDetail(props) {
   let id = props.id;
-
   const [archive, setArchive] = useState(0);
   const handleArchiveClick = () => {
     setArchive(1);
@@ -44,7 +43,7 @@ export default function ActivityDetail(props) {
           duration = {props.duration}
         />
         <button
-          className="square"
+          className="archive"
           onClick={handleArchiveClick}
         >
           {archive}
