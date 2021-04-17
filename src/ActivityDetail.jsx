@@ -6,19 +6,33 @@ import CallNumber from "./CallNumber.jsx"
 
 export default function ActivityDetail(props) {
   let id = props.id;
-  const [archive, setArchive] = useState(0);
+  const [click, setClick] = useState(!props.is_archived);
   const handleArchiveClick = () => {
-    setArchive(1);
-    console.log('id ' + id + ' has been archived!');
-    fetch('https://aircall-job.herokuapp.com/activities/'+id, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        is_archived: true
-      }),
-    });
+    if (click){
+      setClick(false);
+      fetch('https://aircall-job.herokuapp.com/activities/'+id, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          is_archived: true
+        }),
+      });
+      console.log('id ' + id + ' has been archived!');
+    } else {
+      setClick(true);
+      fetch('https://aircall-job.herokuapp.com/activities/'+id, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          is_archived: false
+        }),
+      });
+      console.log('id ' + id + ' has been reset!');
+    }
   }
 
   let date = new Date(props.created_at);
@@ -46,7 +60,7 @@ export default function ActivityDetail(props) {
           className="archive"
           onClick={handleArchiveClick}
         >
-          {archive}
+          {props.is_archived ? "active" : "archive"}
         </button>
       </div>
     </div>
