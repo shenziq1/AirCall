@@ -14,19 +14,27 @@ const App = () => {
     <div className='container'>
       <Header/>
       <div className="container-view">
-        <button
-          className="archive_all"
-          onClick={() => {
-            if (click == 0){
-              setClick(1)
-            } else {
+        <div className="buttons">
+          <button
+            className="inbox"
+            onClick={() => {
               setClick(0)
             }
           }
-        }
-        >
-        {click==0 ? "inbox" : "all calls"}
-        </button>
+          >
+          {"Inbox"}
+          </button>
+
+          <button
+            className="all-calls"
+            onClick={() => {
+              setClick(1)
+            }
+          }
+          >
+          {"All calls"}
+          </button>
+        </div>
         {click==0 ? <ActivityFeed/> : <AllCalls/>}
       </div>
     </div>

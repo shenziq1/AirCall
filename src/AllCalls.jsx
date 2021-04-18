@@ -23,7 +23,7 @@ export default function AllCalls() {
         className="archive_all"
         onClick={handleResetClick}
       >
-      {"Reset"}
+      {"Reset All Calls"}
       </button>
       {data.map(i =>
         <ActivityDetail
