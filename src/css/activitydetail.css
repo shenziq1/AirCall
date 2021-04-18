@@ -7,7 +7,8 @@
 }
 
 .date{
-    color: red;
+    color: grey;
+    margin: 5px;
 }
 
 .card{
@@ -16,11 +17,24 @@
     justify-content: space-between;
     align-items: center;
 
-    width: 326px;
-    height: 35px;
-    padding: 25px;
+    width: 345px;
+    height: 30px;
+    padding: 10px;
     border-radius: 15px;
 
-
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.button{
+  background-color: #4CAF50;
+  width: 50px;
+  height: 30px;
+  border: none;
+  color: white;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  cursor: pointer;
 }

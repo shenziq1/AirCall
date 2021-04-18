@@ -39,7 +39,9 @@ export default function ActivityDetail(props) {
   return (
     <div className='activity_detail'>
       <div className='date'>
-        {date.getFullYear() + '-' + (date.getMonth()+1) + '-' + date.getDate()}
+        {'•••••••••••••••••••••••••' +
+        date.getFullYear() + '-' + (date.getMonth()+1) + '-' + date.getDate() +
+        '•••••••••••••••••••••••••'}
       </div>
 
       <div className='card'>
@@ -57,10 +59,10 @@ export default function ActivityDetail(props) {
           duration = {props.duration}
         />
         <button
-          className="archive"
+          className="button"
           onClick={handleArchiveClick}
         >
-          {props.is_archived ? "active" : "archive"}
+          {props.is_archived ? "reset" : "archive"}
         </button>
       </div>
     </div>

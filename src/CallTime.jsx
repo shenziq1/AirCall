@@ -19,9 +19,9 @@ class CallTime extends React.Component {
     let duration = this.props.duration + " s"
 
     return (
-      <div className='call_time'>
-        <div>{time}</div>
-        <div>{duration}</div>
+      <div className='time-container'>
+        <div className='time'>{time}</div>
+        <div className='duration'>{duration}</div>
       </div>
     );
   }

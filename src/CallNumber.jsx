@@ -1,16 +1,15 @@
 import React from 'react';
-import './css/callicon.css'
+import './css/callnumber.css'
 
 const CallNumber = (props) => {
-  let from = "from: "+ props.from;
-  let to = "to: " + props.to;
-  let via = "via: " + props.via;
+  let from = props.from;
+  let to = props.to;
+  let via = " (via " + props.via + ")";
 
   return (
-    <div>
-      <div>{from}</div>
-      <div>{to}</div>
-      <div>{via}</div>
+    <div className='number-container'>
+      <div className='from'>{from}</div>
+      <div className='to-via'>{to}{via}</div>
     </div>
   )
 }
