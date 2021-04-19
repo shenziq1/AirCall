@@ -9,12 +9,16 @@ export default function AllCalls() {
   }
 
   useEffect(() => {
+    let ismounted = true;
     async function getActivity() {
       let response = await fetch("https://aircall-job.herokuapp.com/activities")
       response = await response.json()
-      setData(response);
+      if (ismounted){
+        setData(response);
+      }
     }
     getActivity();
+    return () => {ismounted = false}
   }, [data.filter(i => !i.is_archived).map(i => i.id)]);
 
   return (
