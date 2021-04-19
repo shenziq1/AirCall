@@ -5,7 +5,7 @@ import './css/activityfeed.css'
 export default function ActivityFeed() {
   const [data, setData] = useState([]);
   const handleArchiveAllClick = () => {
-    let ids = data.filter(i => !i.is_archived).map(i => i.id)
+    const ids = data.filter(i => !i.is_archived).map(i => i.id)
     ids.map(id =>
       fetch('https://aircall-job.herokuapp.com/activities/'+id, {
         method: "POST",

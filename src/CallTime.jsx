@@ -2,7 +2,7 @@ import React from 'react';
 import './css/calltime.css'
 
 const CallTime = (props) => {
-  let date = new Date(props.created_at);
+  const date = new Date(props.created_at);
   let time;
   if (date.getHours() >= 12){
     time = date.getHours() - 12 + ":" + date.getMinutes() + " PM";

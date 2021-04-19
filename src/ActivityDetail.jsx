@@ -5,7 +5,7 @@ import CallTime from "./CallTime.jsx"
 import CallNumber from "./CallNumber.jsx"
 
 export default function ActivityDetail(props) {
-  let id = props.id;
+  const id = props.id;
   const [click, setClick] = useState(!props.is_archived);
   const handleArchiveClick = () => {
     if (click){

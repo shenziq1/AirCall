@@ -2,9 +2,9 @@ import React from 'react';
 import './css/callnumber.css'
 
 const CallNumber = (props) => {
-  let from = props.from;
-  let to = props.to;
-  let via = " (via " + props.via + ")";
+  const from = props.from;
+  const to = props.to;
+  const via = " (via " + props.via + ")";
 
   return (
     <div className='number-container'>

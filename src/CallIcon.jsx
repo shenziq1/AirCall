@@ -2,8 +2,8 @@ import React from 'react';
 import './css/callicon.css'
 
 const CallIcon = (props) => {
-    let direction = props.direction;
-    let type = props.call_type;
+    const direction = props.direction;
+    const type = props.call_type;
     let icon1;
     let icon2;
     if (direction == "inbound"){
