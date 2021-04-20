@@ -10,7 +10,7 @@ export default function CallCard(props) {
   let date = new Date(props.created_at);
   return (
     <div className="card-item">
-      <div className="date">
+      <div className="card-date">
         {"•••••••••••••••••••••••••" +
           date.getFullYear() +
           "-" +

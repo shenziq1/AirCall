@@ -177,7 +177,7 @@ const CallIcon = (props) => {
     }
   }
   return (
-    <div className="call_icon">
+    <div className="call-icon">
       <div>{icon1}</div>
       <div>{icon2}</div>
     </div>

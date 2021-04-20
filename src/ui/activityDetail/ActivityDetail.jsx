@@ -56,6 +56,14 @@ export default (props) => {
                 duration={activity.duration}
               />
             </div>
+
+            <div className="specifics">
+              {"You have a new " + activity.direction + "ing " +
+              activity.call_type + " (call) received on " +
+              new Date(activity.created_at).toDateString() + '.'
+              }
+            </div>
+
             <button
               className="activity-card-button"
               onClick={handleArchiveClick}
