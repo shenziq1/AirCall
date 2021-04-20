@@ -62,7 +62,7 @@ export default function ActivityDetail(props) {
           className="button"
           onClick={handleArchiveClick}
         >
-          {props.is_archived ? "reset" : "archive"}
+          {props.is_archived ? "undo" : "archive"}
         </button>
       </div>
     </div>

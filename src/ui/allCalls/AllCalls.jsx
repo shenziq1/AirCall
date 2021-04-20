@@ -4,7 +4,7 @@ import './allCalls.css'
 
 export default function AllCalls() {
   const [data, setData] = useState([]);
-  const handleResetClick = () => {
+  const handleUnarchiveClick = () => {
     fetch("https://aircall-job.herokuapp.com/reset")
   }
 
@@ -22,12 +22,12 @@ export default function AllCalls() {
   }, [data.filter(i => !i.is_archived).map(i => i.id)]);
 
   return (
-    <div className='activity_feed'>
+    <div className='activity-feed'>
       <button
-        className="archive_all"
-        onClick={handleResetClick}
+        className="undo-archive-all"
+        onClick={handleUnarchiveClick}
       >
-      {"Reset All Calls"}
+      {"Undo archive All Calls"}
       </button>
       {data.map(i =>
         <ActivityDetail
