@@ -1,8 +1,8 @@
 import React from 'react';
 import './css/calltime.css'
 
-const CallTime = (props) => {
-  const date = new Date(props.created_at);
+const CallTime = ({created_at, duration}) => {
+  const date = new Date(created_at);
   let time;
   if (date.getHours() >= 12){
     time = date.getHours() - 12 + ":" + date.getMinutes() + " PM";
@@ -11,12 +11,11 @@ const CallTime = (props) => {
   } if (date.getHours() == 0){
     time = date.getHours() + 12 + ":" + date.getMinutes() + " AM";
   }
-  let duration = props.duration + " s"
 
   return (
     <div className='time-container'>
       <div className='time'>{time}</div>
-      <div className='duration'>{duration}</div>
+      <div className='duration'>{duration + " s"}</div>
     </div>
   );
 }

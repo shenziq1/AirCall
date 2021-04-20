@@ -35,7 +35,7 @@ export default function ActivityDetail(props) {
     }
   }
 
-  let date = new Date(props.created_at);
+  const date = new Date(props.created_at);
   return (
     <div className='activity_detail'>
       <div className='date'>

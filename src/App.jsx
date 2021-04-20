@@ -36,6 +36,7 @@ const App = () => {
           </button>
         </div>
         {click==0 ? <ActivityFeed/> : <AllCalls/>}
+        {new Date('2018-04-18T15:43:32.000Z').getHours()}
       </div>
     </div>
   );
