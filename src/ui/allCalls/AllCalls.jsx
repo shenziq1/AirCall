@@ -1,22 +1,11 @@
 import React, { useState, useEffect } from "react";
-import ActivityDetail from "./ActivityDetail.jsx"
-import './css/activityfeed.css'
+import ActivityDetail from "../activityDetail/ActivityDetail.jsx"
+import './allCalls.css'
 
-export default function ActivityFeed() {
+export default function AllCalls() {
   const [data, setData] = useState([]);
-  const handleArchiveAllClick = () => {
-    const ids = data.filter(i => !i.is_archived).map(i => i.id)
-    ids.map(id =>
-      fetch('https://aircall-job.herokuapp.com/activities/'+id, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          is_archived: true
-        }),
-      })
-    );
+  const handleResetClick = () => {
+    fetch("https://aircall-job.herokuapp.com/reset")
   }
 
   useEffect(() => {
@@ -36,11 +25,11 @@ export default function ActivityFeed() {
     <div className='activity_feed'>
       <button
         className="archive_all"
-        onClick={handleArchiveAllClick}
+        onClick={handleResetClick}
       >
-      {"Archive All Calls"}
+      {"Reset All Calls"}
       </button>
-      {data.filter(i => !i.is_archived).map(i =>
+      {data.map(i =>
         <ActivityDetail
           key = {i.id}
           id = {i.id}

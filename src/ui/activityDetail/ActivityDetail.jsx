@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import './css/activitydetail.css'
-import CallIcon from "./CallIcon.jsx"
-import CallTime from "./CallTime.jsx"
-import CallNumber from "./CallNumber.jsx"
+import './activityDetail.css'
+import CallIcon from "../callIcon/CallIcon.jsx"
+import CallTime from "../callTime/CallTime.jsx"
+import CallNumber from "../callNumber/CallNumber.jsx"
 
 export default function ActivityDetail(props) {
   const id = props.id;

@@ -1,5 +1,5 @@
 import React from 'react';
-import './css/calltime.css'
+import './callTime.css'
 
 const CallTime = ({created_at, duration}) => {
   const date = new Date(created_at);

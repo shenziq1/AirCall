@@ -1,5 +1,5 @@
 import React from 'react';
-import './css/callicon.css'
+import './callIcon.css'
 
 const CallIcon = ({direction, call_type}) => {
     let icon1;

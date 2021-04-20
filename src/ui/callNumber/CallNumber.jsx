@@ -1,5 +1,5 @@
 import React from 'react';
-import './css/callnumber.css'
+import './callNumber.css'
 
 const CallNumber = ({from, to, via}) => {
   return (

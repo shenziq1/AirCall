@@ -4,8 +4,8 @@ import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 
 import Header from './Header.jsx';
-import ActivityFeed from './ActivityFeed.jsx';
-import AllCalls from './AllCalls.jsx'
+import ActivityFeed from './ui/activityFeed/ActivityFeed.jsx';
+import AllCalls from './ui/allCalls/AllCalls.jsx'
 
 const App = () => {
   const [click, setClick] = useState(0);
@@ -36,7 +36,6 @@ const App = () => {
           </button>
         </div>
         {click==0 ? <ActivityFeed/> : <AllCalls/>}
-        {new Date('2018-04-18T15:43:32.000Z').getHours()}
       </div>
     </div>
   );
