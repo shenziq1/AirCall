@@ -1,13 +1,20 @@
-import React from 'react';
-import './callNumber.css'
+import React from "react";
+import "./callNumber.css";
 
-const CallNumber = ({from, to, via}) => {
+const CallNumber = (props) => {
+  const from = props.from;
+  const to = props.to;
+  const via = " (via " + props.via + ")";
+
   return (
-    <div className='number-container'>
-      <div className='from'>{from}</div>
-      <div className='to-via'>{to}{" (via " + via + ")"}</div>
+    <div className="number-container">
+      <div className="from">{from}</div>
+      <div className="to-via">
+        {to}
+        {via}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default CallNumber
+export default CallNumber;
