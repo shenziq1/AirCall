@@ -3,21 +3,21 @@ import "./callTime.css";
 
 const CallTime = (props) => {
   const date = new Date(props.created_at);
-  let time;
-  if (date.getHours() >= 12) {
-    time = date.getHours() - 12 + ":" + date.getMinutes() + " PM";
+  const convertTime = (date) => {
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    let ampm = hours >= 12 ? "PM" : "AM";
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    minutes = minutes < 10 ? "0"+minutes : minutes;
+    let ampmTime = hours + ":" + minutes + ' ' + ampm;
+    return ampmTime;
   }
-  if (0 < date.getHours() < 12) {
-    time = date.getHours() + ":" + date.getMinutes() + " AM";
-  }
-  if (date.getHours() == 0) {
-    time = date.getHours() + 12 + ":" + date.getMinutes() + " AM";
-  }
-  let duration = props.duration + " s";
+  const duration = props.duration + " s";
 
   return (
     <div className="time-container">
-      <div className="time">{time}</div>
+      <div className="time">{convertTime(date)}</div>
       <div className="duration">{duration}</div>
     </div>
   );
