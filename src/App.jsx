@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
-import Header from './Header.jsx';
 import ActivityFeed from './ui/activityFeed/ActivityFeed.jsx';
 
 const App = () => {
@@ -8,7 +7,6 @@ const App = () => {
 
   return (
     <div className='container'>
-      <Header/>
       <div className="container-view">
         <ActivityFeed/>
       </div>

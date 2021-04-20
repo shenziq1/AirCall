@@ -1,4 +1,4 @@
-const setActivityById = (id, { isArchived }) => {
+export const editActivity = (id, { isArchived }) => {
   fetch(`https://aircall-job.herokuapp.com/activities/${id}`, {
     method: "POST",
     headers: {
@@ -8,7 +8,8 @@ const setActivityById = (id, { isArchived }) => {
       is_archived: isArchived,
     }),
   });
-  console.log("success");
 }
 
-export default setActivityById
+export const getActivityById = (id) => {
+  fetch(`https://aircall-job.herokuapp.com/activities/${id}`);
+}

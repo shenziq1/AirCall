@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import CallList from "../CallList.jsx"
+import CallList from "./callList/CallList.jsx"
 import './activityFeed.css'
 
 export default function ActivityFeed() {
