@@ -1,43 +1,49 @@
 import React, { useState } from "react";
-import './activityDetail.css'
+import './callCard.css'
 import CallIcon from "../callIcon/CallIcon.jsx"
 import CallTime from "../callTime/CallTime.jsx"
 import CallNumber from "../callNumber/CallNumber.jsx"
 
-export default function ActivityDetail(props) {
+export default function CallCard(props) {
   const id = props.id;
-  const [click, setClick] = useState(!props.is_archived);
+  const [archive, setArchive] = useState(props.is_archived);
   const handleArchiveClick = () => {
-    if (click){
-      setClick(false);
-      fetch('https://aircall-job.herokuapp.com/activities/'+id, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          is_archived: true
-        }),
-      });
-      console.log('id ' + id + ' has been archived!');
+    if (!archive){
+      try {
+        fetch('https://aircall-job.herokuapp.com/activities/'+id, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            is_archived: true
+          }),
+        });
+        setArchive(true);
+        console.log('id ' + id + ' has been archived!');
+      } catch (e) {
+      }
     } else {
-      setClick(true);
-      fetch('https://aircall-job.herokuapp.com/activities/'+id, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          is_archived: false
-        }),
-      });
-      console.log('id ' + id + ' has been reset!');
+      try{
+        fetch('https://aircall-job.herokuapp.com/activities/'+id, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            is_archived: false
+          }),
+        });
+        setArchive(false);
+        console.log('id ' + id + ' has been reset!');
+      } catch (e) {
+      }
     }
   }
 
   const date = new Date(props.created_at);
   return (
-    <div className='activity_detail'>
+    <div className='call-card'>
       <div className='date'>
         {'•••••••••••••••••••••••••' +
         date.getFullYear() + '-' + (date.getMonth()+1) + '-' + date.getDate() +

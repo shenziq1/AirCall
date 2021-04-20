@@ -8,6 +8,7 @@ const setActivityById = (id, { isArchived }) => {
       is_archived: isArchived,
     }),
   });
+  console.log("success");
 }
 
 export default setActivityById

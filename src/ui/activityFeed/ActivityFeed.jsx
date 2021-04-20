@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from "react";
-import ActivityDetail from "../activityDetail/ActivityDetail.jsx"
+import CallList from "../CallList.jsx"
 import './activityFeed.css'
 
 export default function ActivityFeed() {
+  const displayMode = {
+    INBOX: "INBOX",
+    ALL: "ALL",
+  };
+  const [mode, setMode] = useState(displayMode.INBOX);
   const [data, setData] = useState([]);
+
   const handleArchiveAllClick = () => {
     const ids = data.filter(i => !i.is_archived).map(i => i.id)
     ids.map(id =>
@@ -17,6 +23,10 @@ export default function ActivityFeed() {
         }),
       })
     );
+  }
+
+  const handleUnarchiveClick = () => {
+    fetch("https://aircall-job.herokuapp.com/reset")
   }
 
   useEffect(() => {
@@ -34,25 +44,32 @@ export default function ActivityFeed() {
 
   return (
     <div className='activity_feed'>
-      <button
-        className="archive_all"
-        onClick={handleArchiveAllClick}
-      >
-      {"Archive All Calls"}
-      </button>
-      {data.filter(i => !i.is_archived).map(i =>
-        <ActivityDetail
-          key = {i.id}
-          id = {i.id}
-          created_at = {i.created_at}
-          direction = {i.direction}
-          from = {i.from}
-          to = {i.to}
-          via = {i.via}
-          duration = {i.duration}
-          is_archived = {i.is_archived}
-          call_type = {i.call_type}
-        />)}
+      <div className="buttons">
+        <button
+          className="inbox"
+          onClick={() => {
+            setMode(displayMode.INBOX);
+          }}
+        >
+          Inbox
+        </button>
+        <button
+          className="all-calls"
+          onClick={() => {
+            setMode(displayMode.ALL);
+          }}
+        >
+          All Calls
+        </button>
+      </div>
+
+      <CallList
+        data={
+          mode === displayMode.INBOX
+            ? data.filter(i => !i.is_archived)
+            : data
+        }
+      />
     </div>
   );
 }
