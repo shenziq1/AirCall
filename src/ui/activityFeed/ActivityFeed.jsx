@@ -1,49 +1,37 @@
 import React, { useState, useEffect } from "react";
-import CallList from "./callList/CallList.jsx"
-import './activityFeed.css'
+import { listActivities } from "../../api/activityFeed.js";
+import CallList from "./callList/CallList.jsx";
+import Header from "./header/Header.jsx";
+import "./activityFeed.css";
 
-export default function ActivityFeed() {
+export default () => {
+  const updateFrequency = 3000; // updates data every 3 seconds
   const displayMode = {
     INBOX: "INBOX",
     ALL: "ALL",
   };
   const [mode, setMode] = useState(displayMode.INBOX);
-  const [data, setData] = useState([]);
+  const [feed, setFeed] = useState([]);
 
-  const handleArchiveAllClick = () => {
-    const ids = data.filter(i => !i.is_archived).map(i => i.id)
-    ids.map(id =>
-      fetch('https://aircall-job.herokuapp.com/activities/'+id, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          is_archived: true
-        }),
-      })
-    );
-  }
-
-  const handleUnarchiveClick = () => {
-    fetch("https://aircall-job.herokuapp.com/reset")
-  }
+  const loadData = async () => {
+    try {
+      const response = await listActivities();
+      const data = await response.json();
+      setFeed(data);
+    } catch (e) {
+      // do nothing but just catch so that it doesn't have the error in browser logs
+    }
+  };
 
   useEffect(() => {
-    let ismounted = true;
-    async function getActivity() {
-      let response = await fetch("https://aircall-job.herokuapp.com/activities")
-      response = await response.json()
-      if (ismounted){
-        setData(response);
-      }
-    }
-    getActivity();
-    return () => {ismounted = false}
-  }, [data.filter(i => !i.is_archived).map(i => i.id)]);
+    loadData();
+    const interval = setInterval(loadData, updateFrequency);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <div className='activity_feed'>
+    <div className="container-view">
+      <Header />
       <div className="buttons">
         <button
           className="inbox"
@@ -62,14 +50,13 @@ export default function ActivityFeed() {
           All Calls
         </button>
       </div>
-
       <CallList
-        data={
+        feed={
           mode === displayMode.INBOX
-            ? data.filter(i => !i.is_archived)
-            : data
+            ? feed.filter((item) => !item.is_archived)
+            : feed
         }
       />
     </div>
   );
-}
+};

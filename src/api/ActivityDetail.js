@@ -1,4 +1,4 @@
-export const editActivity = (id, { isArchived }) => {
+export const editActivity = (id, { isArchived }) =>
   fetch(`https://aircall-job.herokuapp.com/activities/${id}`, {
     method: "POST",
     headers: {
@@ -8,8 +8,7 @@ export const editActivity = (id, { isArchived }) => {
       is_archived: isArchived,
     }),
   });
-}
 
-export const getActivityById = (id) => {
+
+export const getActivityById = (id) =>
   fetch(`https://aircall-job.herokuapp.com/activities/${id}`);
-}

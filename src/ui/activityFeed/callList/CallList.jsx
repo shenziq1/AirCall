@@ -4,7 +4,7 @@ import CallCard from "./callCard/CallCard.jsx";
 export default (props) => {
   return (
     <div>
-      {props.data.map((item) => (
+      {props.feed.map((item) => (
         <CallCard
           key={item.id}
           id={item.id}

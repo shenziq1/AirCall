@@ -1,8 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import "./header.css";
 
 const Header = () => {
   return (
     <header>
+      <div className="back-button">
+        <Link to="/">Back</Link>
+      </div>
       <svg
         width="486px"
         height="168px"
