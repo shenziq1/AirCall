@@ -58,8 +58,8 @@ export default (props) => {
             </div>
 
             <div className="specifics">
-              {"You have a new " + activity.direction + "ing " +
-              activity.call_type + " (call) received on " +
+              {"A new " + activity.direction + "ing " +
+              activity.call_type + " (call) was received on " +
               new Date(activity.created_at).toDateString() + '.'
               }
             </div>
