@@ -1,3 +1,4 @@
+// {isArchived} is a javascript object. 
 export const editActivity = (id, { isArchived }) =>
   fetch(`https://aircall-job.herokuapp.com/activities/${id}`, {
     method: "POST",
@@ -9,6 +10,10 @@ export const editActivity = (id, { isArchived }) =>
     }),
   });
 
+// When using () => (...) it is called implicit return,
+// it is equivalent to () => {return ...}, which is called explicit return.
 
-export const getActivityById = (id) =>
-  fetch(`https://aircall-job.herokuapp.com/activities/${id}`);
+//template literals `/${id}`
+export const getActivityById = (id) => {
+  return fetch(`https://aircall-job.herokuapp.com/activities/${id}`);
+}

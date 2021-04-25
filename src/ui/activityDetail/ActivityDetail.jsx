@@ -27,12 +27,15 @@ export default (props) => {
 
   const handleArchiveClick = () => {
     const archived = activity.is_archived;
+    //send post request to the backend to modify activity
     editActivity(id, { isArchived: !archived });
+    //set the activity state to the updated state
     const activityCopy = Object.assign({}, activity);
     activityCopy.is_archived = !archived;
     setActivity(activityCopy);
   };
 
+  //Unnecessary, forget to delete
   useEffect(() => {}, [id]);
 
   return (

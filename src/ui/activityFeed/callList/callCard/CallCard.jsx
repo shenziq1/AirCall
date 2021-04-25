@@ -4,7 +4,7 @@ import CallIcon from "../../../common/callIcon/CallIcon.jsx";
 import CallNumber from "../../../common/callNumber/CallNumber.jsx";
 import "./callCard.css";
 
-export default function CallCard(props) {
+const CallCard = (props) => {
   const id = props.id;
 
   let date = new Date(props.created_at);
@@ -26,4 +26,6 @@ export default function CallCard(props) {
       </Link>
     </div>
   );
-}
+};
+
+export default CallCard;

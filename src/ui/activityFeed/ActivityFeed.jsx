@@ -25,8 +25,11 @@ export default () => {
 
   useEffect(() => {
     loadData();
+    // run loadData every updateFrequency
     const interval = setInterval(loadData, updateFrequency);
+    // cleanup side effect
     return () => clearInterval(interval);
+    // run an effect and clean it up only once (on mount and unmount)
   }, []);
 
   return (
